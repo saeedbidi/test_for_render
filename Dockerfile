@@ -7,10 +7,6 @@ WORKDIR /app
 # Copy the project files into the container
 COPY . /app
 
-# Install system dependencies for PDF processing (if needed for pdfplumber or PyMuPDF)
-RUN apt-get update && apt-get install -y \
-    libglib2.0-0 libsm6 libxrender1 libxext6 poppler-utils \
-    && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
